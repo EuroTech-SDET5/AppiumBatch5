@@ -46,6 +46,8 @@ public class day1 {
         MobileElement digit3 = driver.findElement(By.id("com.google.android.calculator:id/digit_3"));
         MobileElement plus = driver.findElement(By.id("com.google.android.calculator:id/op_add"));
         MobileElement equal = driver.findElement(By.id("com.google.android.calculator:id/eq"));
+        MobileElement multiply = driver.findElement(By.id("com.google.android.calculator:id/op_mul"));
+
 
         digit2.click();
         plus.click();
@@ -57,32 +59,30 @@ public class day1 {
         Assert.assertEquals("5",actualResult);
 
 
+
+
+
+        //TASK 5 * 8 =40
+
+        getDigit(5).click();
+        multiply.click();
+        getDigit(8).click();
+        equal.click();
+        actualResult = result.getText();
+        Assert.assertEquals("40",actualResult);
+
+        //Task 91- 74 = 17
+
+
+
+
         Thread.sleep(2000);
 
         driver.closeApp();
 
 
-        //TASK 5 * 8 =40
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+    public MobileElement getDigit(int digit){
+      return   driver.findElement(By.id("com.google.android.calculator:id/digit_"+digit));
     }
 }
